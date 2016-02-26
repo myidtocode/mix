@@ -1,0 +1,60 @@
+<div class="container">
+
+  <div>
+    <table class="table table-bordered table-condensed table-hover" st-table="coopList" st-safe-src="CpCntl.rowCollection">
+        <thead>
+        <tr>
+            <th colspan="5">
+                <input type="text" st-search="" class="form-balancecontrol" placeholder="搜索…" />
+            </th>
+            <th>
+                <button type="button" ng-click="CpCntl.refreshList()" class="btn btn-sm btn-primary pull left" >
+                    <i class="glyphicon glyphicon-refresh">
+                    </i>刷新
+                </button>
+                </th>
+        </tr>
+        <tr>
+            <th st-sort="contract_no">合同编号</th>
+            <th st-sort="project_no">项目编号</th>
+            <th st-sort="project_name">项目名称</th>
+            <th st-sort="cust_no">客户编号</th>
+            <th st-sort="cust_name">客户名称</th>
+            <th st-sort="cust_name">操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="row in coopList">
+                <td>{{row.contract_no}}</td>
+                <td>{{row.project_no}}</td>
+                <td>{{row.project_name}}</td>
+                <td>{{row.cust_no}}</td>
+                <td>{{row.cust_name}}</td>
+                <td>
+                    <button type="button" ng-click="CpCntl.rowSelected(row)" class="btn btn-sm btn-primary">
+                        <i class="glyphicon glyphicon-ok"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+
+
+        <tfoot>
+            <tr>
+                <td colspan="6" class="text-center">
+                    <div st-pagination="" st-items-by-page="CpCntl.itemsByPage" st-displayed-page="5"></div>
+                </td>
+            </tr>
+        </tfoot>
+
+    </table>
+  </div>
+
+  <div class="text-center">
+    <button class="btn btn-primary" ng-click="CpCntl.popupw()"  type="button">保存</button>
+    <button class="btn btn-primary" ng-click="CpCntl.closeModal()"  type="button">关闭</button>
+    <!--ng-click="accountInfo.closeModal()"-->
+  </div>
+
+</div>

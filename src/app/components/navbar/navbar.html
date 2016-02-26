@@ -1,0 +1,48 @@
+<!--
+<nav class="navbar navbar-default">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Link<span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+-->
+
+
+
+	<nav class="navbar navbar-default qlc-nabar-title" role="navigation" bs-navbar>
+	  <ul class="nav navbar-nav">
+        <li><a ui-sref="home"><div class="qlc-nabar-text">Home</div></a></li>
+        <li><a ui-sref="workList"><div class="qlc-nabar-text">我的工作</div></a></li>
+        <li><a ui-sref="interBankDeposit"><div class="qlc-nabar-text">同业存放</div></a></li>
+        <li><a ui-sref=""><div class="qlc-nabar-text">存放同业</div></a></li>
+     <!--
+     The dropdown part doesn't work, which means the code in the ul tags doesn't show up in the browser. Meanwhile, the colour of the word data-toggle is unusual, maybe that means something. -->
+     
+     <li class="dropdown">        
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >
+                <div class="qlc-nabar-text">
+                    同业业务
+                <span class="caret"></span>
+                </div>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="#">存放同业</a></li>
+                <li><a ui-sref="interBankDeposit">同业存放</a></li>
+                <li><a ui-sref="">存放同业</a></li>
+            </ul>
+        </li>
+     
+        
+        <li><a ui-sref="pay"><div class="qlc-nabar-text">双边资金支付</div></a></li>
+        
+	  </ul>
+  </nav> 

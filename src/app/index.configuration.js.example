@@ -1,0 +1,9 @@
+(function() {
+   'use strict';
+ 
+   angular
+     .module('configuration', [])
+     .constant('WORKFLOW_IP','http://10.66.81.78:3000')
+     .constant('CACHE_IP','http://10.66.81.78:3002');
+ 
+ })();

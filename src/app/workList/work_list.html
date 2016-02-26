@@ -1,0 +1,61 @@
+﻿<div class="container">
+
+  <div>
+    <acme-navbar creation-date="pay.creationDate"></acme-navbar>
+  </div>
+
+  <table st-table="workListInfo" st-safe-src="workList.rowCollection" class="table table-hover">
+    <thead>
+    <tr>
+      <th colspan="9"><input st-search="" class="form-balancecontrol" placeholder="搜索..." type="text"/>
+      	</th>
+      <th>
+        <button type="button" ng-click="workList.refreshList()" class="btn btn-sm btn-primary pull-left ">
+          <i class="glyphicon glyphicon-refresh">
+          </i> 刷新
+        </button>
+      </th>
+    </tr>
+
+    <tr>
+      <th st-sort="contract_no">id</th>
+      <th st-sort="project_no">申请类型</th>
+      <th st-sort="project_no">客户名称</th>
+      <th st-sort="project_no">项目名称</th>
+      <th st-sort="project_no">合同编号</th>
+      <th st-sort="project_no">合同金额</th>
+      <th st-sort="project_no">合同币种</th>
+      <th st-sort="project_no">创建时间</th>
+      <th st-sort="project_no">业务环节</th>
+      <th st-sort="project_name">操作</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="row in workListInfo">
+      <td>{{row.id}}</td>
+      <td>{{row.business_type}}</td>
+      <td>{{row.cust_name}}</td>
+      <td>{{row.project_name}}</td>
+      <td>{{row.contract_no}}</td>
+      <td>{{row.contract_amt}}元</td>
+      <td>{{row.currency_cd}}</td>
+      <td>{{row.created_at}}</td>
+      <td>{{row.state_name}}</td>
+      <td>
+       	<button type="button" ng-click="workList.myWorkJump(row)" class="btn btn-sm btn-primary">
+          <i class="glyphicon glyphicon-pencil"></i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+
+    <tfoot>
+    <tr>
+      <td colspan="10" class="text-center">
+        <div st-pagination="" st-items-by-page="workList.itemsByPage" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>

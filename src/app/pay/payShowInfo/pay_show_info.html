@@ -1,0 +1,129 @@
+<div class="container">
+  <div class="row">
+    <acme-navbar creation-date="pay.creationDate"></acme-navbar>
+  </div>
+
+  <div class="row">
+    <div bs-active-pane="基本信息" bs-tabs>
+      <div  title="基本信息" name="baseInfo"  bs-pane>
+        <div class="panel panel-default">
+            <div class="panel-body">
+              <table class="table table-bordered table-condensed table-hover">
+                <tr>
+                  <td class="text-right qlc-label-bg">项目编号</td>
+                  <td class="qlc-table-tdshow">{{payShow.baseInfo.project_no}}</td>
+                  <td class="text-right qlc-label-bg">项目名称</td>
+                  <td class="qlc-table-tdshow">{{payShow.baseInfo.project_name}}</td>
+                </tr>
+                <tr>
+                  <td class="text-right qlc-label-bg">客户编号</td>
+                  <td>{{payShow.baseInfo.cust_no}}</td>
+                  <td class="text-right qlc-label-bg">客户名称</td>
+                  <td>{{payShow.baseInfo.cust_name}}</td>
+                </tr>
+                <tr>
+                  <td class="text-right qlc-label-bg">合同编号</td>
+                  <td>{{payShow.baseInfo.contract_no}}</td>
+                  <td class="text-right qlc-label-bg">交易来源</td>
+                  <td>柜面申请</td>
+                </tr>
+                <tr>
+                  <td class="text-right qlc-label-bg">支付类型</td>
+                  <td class="qlc-table-tdshow">
+                    <label style="font-weight : normal">
+                      <input type="radio" name="optionsRadiosinline1" id="optionsRadios1" value="option1" checked>信贷资金
+                    </label>&nbsp;&nbsp;&nbsp;
+                    <label style="font-weight : normal">
+                      <input type="radio" name="optionsRadiosinline1" id="optionsRadios2" value="option2">非信贷资金
+                    </label>
+                  </td>
+                  <td class="text-right qlc-label-bg">支付形式</td>
+                    <td class="qlc-table-tdshow">
+                    <label style="font-weight : normal">
+                      <input type="radio" name="optionsRadiosinline2" id="optionsRadios3" value="option1" checked>受托支付
+                    </label>&nbsp;&nbsp;&nbsp;
+                    <label style="font-weight : normal">
+                      <input type="radio" name="optionsRadiosinline2" id="optionsRadios4" value="option2">自主支付
+                    </label>
+                    </td>
+                </tr>
+                <tr>
+                  <td class="text-right qlc-label-bg">支付时间</td>
+                  <td>2016-01-08</td>
+                  <td class="text-right qlc-label-bg"></td>
+                  <td><button class="btn btn-xs btn-primary" ng-click="payShow.showModal()" type="button">常用付款人信息</button></td>
+                </tr>
+                <tr>
+                  <td class="text-right qlc-label-bg">付款单位账号</td>
+                  <td>{{payShow.baseInfo.contract_no}}</td>
+                  <td class="text-right qlc-label-bg">币种</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-right qlc-label-bg">付款单位名称</td
+                    ><td>{{payShow.baseInfo.contract_no}}</td>
+                  <td class="text-right qlc-label-bg">账户余额</td>
+                  <td>{{payShow.baseInfo.contract_no}}</td>
+                </tr>
+                <tr>
+                  <td class="text-right qlc-label-bg">汇出行名称</td>
+                  <td>{{payShow.baseInfo.contract_no}}</td>
+                  <td class="text-right qlc-label-bg">汇出地址</td>
+                  <td>{{payShow.baseInfo.contract_no}}</td>
+                </tr>
+                <tr>
+                  <td class="text-right qlc-label-bg">支付形式</td>
+                  <td colspan="3">
+                    <label style="font-weight : normal">
+                      <input type="radio" name="optionsRadiosinline" id="optionsRadios5" value="option1" checked>同城支付(活期支取/活期转账)
+                    </label>&nbsp;&nbsp;&nbsp;
+                    <label style="font-weight : normal">
+                      <input type="radio" name="optionsRadiosinline" id="optionsRadios6" value="option2">信汇
+                    </label>&nbsp;&nbsp;&nbsp;
+                    <label style="font-weight : normal">
+                      <input type="radio" name="optionsRadiosinline" id="optionsRadios7" value="option2">国内支付或外汇汇款
+                    </label>&nbsp;&nbsp;&nbsp;
+                    <label style="font-weight : normal">
+                      <input type="radio" name="optionsRadiosinline" id="optionsRadios8" value="option2">小额支付系统
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-right qlc-label-bg">支付金额</td>
+                  <td><input style="width: 40%;border:1px solid #ccc">元</td>
+                  <td class="text-right qlc-label-bg"></td>
+                  <td><button class="btn btn-xs btn-primary" ng-click="payShow.showModalNew()" type="button">常用收款人信息</button></td>
+                </tr>
+                <tr>
+                  <td class="text-right qlc-label-bg">收款人/受益人名称</td>
+                  <td>{{payShow.baseInfo.contract_no}}</td>
+                  <td class="text-right qlc-label-bg">收款人/受益人账号</td>
+                  <td>{{payShow.baseInfo.contract_no}}</td>
+                </tr>
+                <tr>
+                  <td class="text-right qlc-label-bg">收款人/受益人开户行</td>
+                  <td>{{payShow.baseInfo.contract_no}}</td>
+                  <td class="text-right qlc-label-bg">汇入地址</td>
+                  <td>{{payShow.baseInfo.contract_no}}</td>
+                </tr>
+                <tr>
+                  <td class="text-right qlc-label-bg">付款用途</td>
+                  <td><textarea rows="3" class="input-lg" style="width: 90%;border:1px solid #ccc"></textarea></td>
+                  <td class="text-right qlc-label-bg">备注(或收款人全称)</td>
+                  <td><textarea rows="3" class="input-lg" style="width: 90%;border:1px solid #ccc"></textarea></td>
+                </tr>
+              </table>
+            </div>
+        </div>
+      </div>
+      <div  title="上传附件" name="upDown"  bs-pane>
+        上传附件正在开发中ing！！！
+      </div>
+    </div>
+	</div>
+
+  <div  class="text-center">
+    <button class="btn btn-primary" ng-click="payShow.createProcess()" type="button">创建流程</button>&nbsp;&nbsp;
+    <button class="btn btn-primary" ng-click="payShow.createSubmitProcess()" type="button">创建并提交</button>
+  </div>
+</div>
