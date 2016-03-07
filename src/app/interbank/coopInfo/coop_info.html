@@ -4,7 +4,7 @@
     <table class="table table-bordered table-condensed table-hover" st-table="coopList" st-safe-src="CpCntl.rowCollection">
         <thead>
         <tr>
-            <th colspan="5">
+            <th colspan="2">
                 <input type="text" st-search="" class="form-balancecontrol" placeholder="搜索…" />
             </th>
             <th>
@@ -15,20 +15,14 @@
                 </th>
         </tr>
         <tr>
-            <th st-sort="contract_no">合同编号</th>
-            <th st-sort="project_no">项目编号</th>
-            <th st-sort="project_name">项目名称</th>
             <th st-sort="cust_no">客户编号</th>
             <th st-sort="cust_name">客户名称</th>
-            <th st-sort="cust_name">操作</th>
+            <th st-sort="operate">操作</th>
         </tr>
         </thead>
 
         <tbody>
             <tr ng-repeat="row in coopList">
-                <td>{{row.contract_no}}</td>
-                <td>{{row.project_no}}</td>
-                <td>{{row.project_name}}</td>
                 <td>{{row.cust_no}}</td>
                 <td>{{row.cust_name}}</td>
                 <td>
@@ -42,7 +36,7 @@
 
         <tfoot>
             <tr>
-                <td colspan="6" class="text-center">
+                <td colspan="3" class="text-center">
                     <div st-pagination="" st-items-by-page="CpCntl.itemsByPage" st-displayed-page="5"></div>
                 </td>
             </tr>

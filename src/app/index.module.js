@@ -22,6 +22,9 @@
   .factory('TbConContractInfo',  function($resource, CACHE_IP){
     return $resource(CACHE_IP + '/api/v1/con_contract_infos/:contractId', { contractId: '@id' });
   })
+  .factory('TbCusCustInfo',  function($resource, CACHE_IP){
+    return $resource(CACHE_IP + '/api/v1/cus_cust_infos/:custId', { custId: '@id' });
+  })
   .factory('TbPpyPayInfo',  function($resource, CACHE_IP){
     return $resource(CACHE_IP + '/api/v1/ppy_pay_infos/:payId', {
       payId: '@id',
@@ -34,6 +37,12 @@
         method: 'PUT'
       }
     });
-  });
-
+  })
+  .factory('TbIntbkDepositInfo',  function($resource, CACHE_IP){
+    return $resource(CACHE_IP + '/tb_intbk_deposit_infos/:dpstId', {
+      dpstId: '@id',
+      format: 'json'
+    });
+  }) 
+  ;
 })();

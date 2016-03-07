@@ -9,7 +9,7 @@
       .module('pay')
       .controller('interDepositController',interDepositCntl);
     
-    function interDepositCntl($window,Session,$scope){
+    function interDepositCntl($window,TbIntbkDepositInfo, Session){
             
            // $scope.myForm= {}; 
 
@@ -17,7 +17,7 @@
             var nowDate = new Date();
             vm.depositNo = nowDate.toLocaleString();//fake deposit no
             vm.session = Session.init();
-            vm.project_no = 2;
+            //vm.project_no = 2;
            // vm.myForm;
 
             //vm.amt="22";
@@ -28,8 +28,7 @@
             //The size of the showmodal doesn't work, but after I change the size of the modal by dragging it, the size will be changed and stay.
             vm.showModal = function showModal(){
                 var ret = $window.showModalDialog('#/interBankDeposit/depositStartInfo/coopInfo','dialogWidth:800px;dialogHeight:450px');
-                vm.project_no = ret[0];
-                vm.project_name = ret[1];
+                vm.cust_name = ret;
                 }
 
                
@@ -43,10 +42,33 @@
 
 
 
-            vm.createProcess = function(){
-           // $scope.createProcess = function(){
-               // alert($scope.myForm.amt+$scope.myForm.term);
-                alert(vm.myForm.amt);
+            vm.createProcess = function createProcess(){
+                alert("the amount"+vm.amt+"and some other data will be inserted.");
+                TbIntbkDepositInfo.save({
+                    'tb_intbk_deposit_info':{
+                         dpst_no: vm.depositNo,
+                         cust_id: 'custid1',
+                         cust_name: vm.cust_name, 
+                         pdct_sign_date: vm.signDate,
+                         dpst_amt_million: vm.amt,
+                         currency_cd: vm.currency,
+                         term_month: vm.term,
+                         intst_rate_percent: vm.rate,
+                         intst_type_cd: vm.interestType,
+                         pdct_intst_date: vm.intstDate,
+                         maturity_date: vm.maturityDate,
+                         opinion: vm.opinion,
+                         is_valid:'Y',
+                         create_user_id:'A0083312',
+                         create_user_name:'张三',
+                         create_time: vm.depositNo,
+                         update_user_id:'updateuserid',
+                         update_user_name:'userusername',
+                         update_time:vm.depositNo,
+                         org_cd:'1100'
+                        }
+               } );    
+                alert("Done.");
                 }
 
         }

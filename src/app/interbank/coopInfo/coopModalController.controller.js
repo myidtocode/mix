@@ -13,7 +13,7 @@
     
 
   /** @ngInject */
-  function coopModalCntl($window,Session,TbConContractInfo){
+  function coopModalCntl($window,Session,TbCusCustInfo){
     var vm = this;
     vm.session = Session.init();
     vm.tproject_no;
@@ -24,9 +24,8 @@
     refreshList();
     vm.refreshList = refreshList;
     function refreshList(){
-       // alert("g");
-        vm.rowCollection = TbConContractInfo.query({
-        handling_user_no: vm.session.userid,
+        vm.rowCollection = TbCusCustInfo.query({
+        //handling_user_no: vm.session.userid,
         format: "json"
         }, function(){
             },function(){
@@ -40,10 +39,10 @@
 
     vm.rowSelected = function(row){
            // vm.tproject_no = row.project_no;
-            var ret = new Array(2);
-            ret[0] = row.project_no;
-            ret[1] = row.project_name;
-            alert("Project number "+ret[0]+" and project name "+ret[1]+" is selected.");
+           // var ret = new Array(2);
+           // ret[0] = row.project_no;
+            var ret = row.cust_name;
+            alert("已选中"+ret+"为合作机构");
             window.close();
            // return(vm.tproject_no);
             window.returnValue = ret;
