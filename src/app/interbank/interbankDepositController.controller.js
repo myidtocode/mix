@@ -14,9 +14,15 @@
            // $scope.myForm= {}; 
 
             var vm = this;
+            initPage();
+            vm.initPage = initPage;
             var nowDate = new Date();
             vm.depositNo = nowDate.toLocaleString();//fake deposit no
             vm.session = Session.init();
+
+            function initPage(){
+                vm.interestType = "floating";
+                }
             //vm.project_no = 2;
            // vm.myForm;
 
@@ -43,8 +49,8 @@
 
 
             vm.createProcess = function createProcess(){
-                alert("the amount"+vm.amt+"and some other data will be inserted.");
-                TbIntbkDepositInfo.save({
+                alert("the amount "+vm.interestType+" and some other data will be inserted.");
+      /*          TbIntbkDepositInfo.save({
                     'tb_intbk_deposit_info':{
                          dpst_no: vm.depositNo,
                          cust_id: 'custid1',
@@ -67,8 +73,9 @@
                          update_time:vm.depositNo,
                          org_cd:'1100'
                         }
-               } );    
+               } );  
                 alert("Done.");
+        */
                 }
 
         }

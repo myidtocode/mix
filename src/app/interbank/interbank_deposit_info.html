@@ -5,7 +5,7 @@
 
     <form name="myForm">
     <div bs-active-pane="基本信息" bs-tabs>
-        <div  title="基本信息" name="baseInfo"  bs-pane>
+        <div  title="同业存放基本信息" name="baseInfo"  bs-pane>
             <div class="panel panel-default">
                 <div class="panel-body">
                 <table class="table table-bordered table-condensed table-hover"> 
@@ -20,39 +20,40 @@
                       <td>{{DpCntl.cust_name}}
                       <button class="btn btn-xs btn-primary" ng-click="DpCntl.showModal()" type="button">合作机构</button></td>
                       <td class="text-right qlc-label-bg">预计合同签订时间</td>
-                      <td><input type="date" ng-model="DpCntl.signDate" style="width: 40%;border:1px solid #ccc" required></td>
+                      <td><input name="signDate" type="date" ng-model="DpCntl.signDate" placeholder="yyyy-MM-dd" style="width: 40%;border:1px solid #ccc" required/>
+                          <span class="error" ng-show="myForm.signDate.$error.date">Not a valid date</span></td>
                   </tr>
                   <tr>
                       <td class="text-right qlc-label-bg">本金</td>
-                      <td><input type="number" name="dpAmt" ng-model="DpCntl.amt" style="width: 40%;border:1px solid #ccc;text-align:right" placeholder="必填项" required>万元&nbsp;{{amt|currency}} 
+                      <td><input type="number" name="dpAmt" ng-model="DpCntl.amt" style="width: 40%;border:1px solid #ccc;text-align:right" placeholder="必填项" required/>万元&nbsp;{{amt|currency}} 
                           <span ng-show="myForm.dpAmt.$error.required"><b class="text-danger">*</b></span></td>
                    <!--   name<input ng-model="myname" type="text">
                       family<input ng-model="myfamily" type="text">{{fullname}} -->
                       <td class="text-right qlc-label-bg">币种</td>
-                      <td><input ng-model="DpCntl.currency" style="width: 40%;border:1px solid #ccc"></td>
+                      <td><input ng-model="DpCntl.currency" style="width: 40%;border:1px solid #ccc"/></td>
                   </tr>
                   <tr>
                       <td class="text-right qlc-label-bg">期限</td>
-                      <td><input type="number" ng-model="DpCntl.term" min="0" style="width: 40%;border:1px solid #ccc;text-align:right">个月</td>
+                      <td><input type="number" ng-model="DpCntl.term" min="0" style="width: 40%;border:1px solid #ccc;text-align:right"/>个月</td>
                       <td class="text-right qlc-label-bg">利率</td>
-                      <td><input ng-model="DpCntl.rate" style="width: 40%;border:1px solid #ccc;text-align:right">%</td>
+                      <td><input ng-model="DpCntl.rate" style="width: 40%;border:1px solid #ccc;text-align:right"/>%</td>
                   </tr>
                   <tr>
                       <td class="text-right qlc-label-bg">记息方式</td>
-                    <td class="qlc-table-tdshow">
+                   <td class="qlc-table-tdshow">
                         <label style="font-weight : normal">
-                            <input type="radio" ng-model="DpCntl.interestType" name="optionsRadiosinline1" id="optionsRadios1" value="floating" checked>浮动
+                            <input type="radio" ng-model="DpCntl.interestType" name="optionsRadiosinline1" id="optionsRadios1" value="floating" ng-checked="true"/>浮动
                         </label>&nbsp;&nbsp;&nbsp;
                         <label style="font-weight : normal">
-                            <input type="radio" ng-model="DpCntl.interestType" name="optionsRadiosinline1" id="optionsRadios2" value="fixed">固定
+                            <input type="radio" ng-model="DpCntl.interestType" name="optionsRadiosinline1" id="optionsRadios2" value="fixed"/>固定
                         </label>
                    </td>
                       <td class="text-right qlc-label-bg">预计起息日</td>
-                      <td><input ng-model="DpCntl.intstDate" style="width: 40%;border:1px solid #ccc"></td>
+                      <td><input type="date" ng-model="DpCntl.intstDate" style="width: 40%;border:1px solid #ccc"/></td>
                    </tr>
                    <tr>
                       <td class="text-right qlc-label-bg">到期日</td>
-                      <td><input ng-model="DpCntl.maturityDate" style="width: 40%;border:1px solid #ccc"></td>
+                      <td><input type="date" ng-model="DpCntl.maturityDate" style="width: 40%;border:1px solid #ccc"/></td>
                    </tr>
                    <tr>
                       <td class="text-right qlc-label-bg">送审单位意见</td>
