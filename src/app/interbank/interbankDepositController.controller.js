@@ -9,17 +9,23 @@
       .module('pay')
       .controller('interDepositController',interDepositCntl);
     
-    function interDepositCntl($window,TbIntbkDepositInfo, Session){
+    function interDepositCntl($window,TbIntbkDepositInfo, Session, Dict){
             
            // $scope.myForm= {}; 
 
             var vm = this;
             initPage();
+            queryDict();
             vm.initPage = initPage;
             var nowDate = new Date();
             vm.depositNo = nowDate.toLocaleString();//fake deposit no
             vm.session = Session.init();
 
+            vm.queryDict = queryDict();
+            function queryDict(){
+                vm.currencys = Dict.get({'dicttypeid':'QLC_CURRENCY_CD'});
+                }
+            
             function initPage(){
                 vm.interestType = "floating";
                 }
@@ -49,7 +55,7 @@
 
 
             vm.createProcess = function createProcess(){
-                alert("the amount "+vm.interestType+" and some other data will be inserted.");
+                alert("The data "+vm.currency+" and the rest of the page will be inserted.");
       /*          TbIntbkDepositInfo.save({
                     'tb_intbk_deposit_info':{
                          dpst_no: vm.depositNo,

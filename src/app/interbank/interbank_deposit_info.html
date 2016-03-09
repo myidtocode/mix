@@ -30,7 +30,15 @@
                    <!--   name<input ng-model="myname" type="text">
                       family<input ng-model="myfamily" type="text">{{fullname}} -->
                       <td class="text-right qlc-label-bg">币种</td>
-                      <td><input ng-model="DpCntl.currency" style="width: 40%;border:1px solid #ccc"/></td>
+                      <td>
+                          <!--    <input ng-model="DpCntl.currency" style="width: 40%;border:1px solid #ccc"/> -->
+                        <select
+                            chosen
+                            data-placeholder="Choose a currency type"
+                            ng-model="DpCntl.currency"
+                            ng-options="s.dictid as s.dictname for s in DpCntl.currencys.QLC_CURRENCY_CD">
+                        </select >
+                      </td>
                   </tr>
                   <tr>
                       <td class="text-right qlc-label-bg">期限</td>
@@ -42,7 +50,7 @@
                       <td class="text-right qlc-label-bg">记息方式</td>
                    <td class="qlc-table-tdshow">
                         <label style="font-weight : normal">
-                            <input type="radio" ng-model="DpCntl.interestType" name="optionsRadiosinline1" id="optionsRadios1" value="floating" ng-checked="true"/>浮动
+                            <input type="radio" ng-model="DpCntl.interestType" name="optionsRadiosinline1" id="optionsRadios1" value="floating" />浮动
                         </label>&nbsp;&nbsp;&nbsp;
                         <label style="font-weight : normal">
                             <input type="radio" ng-model="DpCntl.interestType" name="optionsRadiosinline1" id="optionsRadios2" value="fixed"/>固定

@@ -38,6 +38,12 @@
       }
     });
   })
+  .factory('Dict',function($resource,CACHE_IP){
+      return $resource(CACHE_IP + '/cache/dict/:dicttypeid',{
+        dicttypeid: '@id',
+        format: 'json'
+      });
+      })
   .factory('TbIntbkDepositInfo',  function($resource, CACHE_IP){
     return $resource(CACHE_IP + '/tb_intbk_deposit_infos/:dpstId', {
       dpstId: '@id',
