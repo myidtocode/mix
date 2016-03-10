@@ -21,6 +21,14 @@
             vm.depositNo = nowDate.toLocaleString();//fake deposit no
             vm.session = Session.init();
 
+            vm.submitForm=function(myForm){
+                if (myForm.$valid){
+                    alert("The data "+vm.currency+" and the rest of the page will be inserted.");
+                    alert('Amazing');
+                    }
+                }
+
+
             vm.queryDict = queryDict();
             function queryDict(){
                 vm.currencys = Dict.get({'dicttypeid':'QLC_CURRENCY_CD'});

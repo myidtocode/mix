@@ -3,6 +3,7 @@
         <acme-navbar creation-date="pay.creationDate"></acme-navbar>
     </div>
 
+    <!--<form name="myForm" ng-submit="DpCntl.submitForm(myForm.$valid)">-->
     <form name="myForm">
     <div bs-active-pane="基本信息" bs-tabs>
         <div  title="同业存放基本信息" name="baseInfo"  bs-pane>
@@ -21,12 +22,13 @@
                       <button class="btn btn-xs btn-primary" ng-click="DpCntl.showModal()" type="button">合作机构</button></td>
                       <td class="text-right qlc-label-bg">预计合同签订时间</td>
                       <td><input name="signDate" type="date" ng-model="DpCntl.signDate" placeholder="yyyy-MM-dd" style="width: 40%;border:1px solid #ccc" required/>
-                          <span class="error" ng-show="myForm.signDate.$error.date">Not a valid date</span></td>
+                          <span ng-show="myForm.signDate.$error.date" class="text-danger">日期格式不正确</span>
+                          <span ng-show="myForm.signDate.$error.required" class="text-danger">必填项</span></td>
                   </tr>
                   <tr>
                       <td class="text-right qlc-label-bg">本金</td>
-                      <td><input type="number" name="dpAmt" ng-model="DpCntl.amt" style="width: 40%;border:1px solid #ccc;text-align:right" placeholder="必填项" required/>万元&nbsp;{{amt|currency}} 
-                          <span ng-show="myForm.dpAmt.$error.required"><b class="text-danger">*</b></span></td>
+                      <td><input type="number" name="dpAmt" ng-model="DpCntl.amt" style="width: 40%;border:1px solid #ccc;text-align:right" required/>万元&nbsp;{{amt|currency}} 
+                          <span ng-show="myForm.dpAmt.$error.required"><span class="text-danger">必填项</span></span></td>
                    <!--   name<input ng-model="myname" type="text">
                       family<input ng-model="myfamily" type="text">{{fullname}} -->
                       <td class="text-right qlc-label-bg">币种</td>
@@ -34,10 +36,13 @@
                           <!--    <input ng-model="DpCntl.currency" style="width: 40%;border:1px solid #ccc"/> -->
                         <select
                             chosen
+                            name="currency"
                             data-placeholder="Choose a currency type"
-                            ng-model="DpCntl.currency"
+                            ng-model="DpCntl.currency" required
                             ng-options="s.dictid as s.dictname for s in DpCntl.currencys.QLC_CURRENCY_CD">
+                        <option value="">-- 请选择 --</option>
                         </select >
+                          <span ng-show="myForm.currency.$error.required" class="text-danger">必填项</span></td>
                       </td>
                   </tr>
                   <tr>
@@ -61,12 +66,15 @@
                    </tr>
                    <tr>
                       <td class="text-right qlc-label-bg">到期日</td>
-                      <td><input type="date" ng-model="DpCntl.maturityDate" style="width: 40%;border:1px solid #ccc"/></td>
+                      <td><input type="date" name="maturityDate" ng-model="DpCntl.maturityDate" style="width: 40%;border:1px solid #ccc"/>
+                          <!-- <span ng-message="myForm.maturityDate.$error" ng-messages-multiple ng-messages-include="@Url.Content("~/app/interbank/template/error.html")"></span> -->
+                          <!--<span ng-show="myForm.maturityDate.$error.email">not a email</span> -->
+                      </td>
                    </tr>
                    <tr>
                       <td class="text-right qlc-label-bg">送审单位意见</td>
                       <td colspan="3">
-                      <textarea ng-model="DpCntl.opinion" rows="4" class="input-lg" style="width: 90%;border:1px solid #ccc"></textarea></td>
+                      <textarea ng-model="DpCntl.opinion" rows="4" maxlength="2000" style="width: 90%;border:1px solid #ccc" placeholder="字数限制：2000字"></textarea></td>
                    </tr> 
                 </table> 
                 </div>
@@ -82,7 +90,8 @@
     </div>
 
   <div  class="text-center">
-    <button class="btn btn-primary" ng-click="DpCntl.createProcess()" type="submit">创建流程</button>&nbsp;&nbsp;
+      <!--<button class="btn btn-primary" ng-click="DpCntl.createProcess()" type="submit">创建流程</button>&nbsp;&nbsp;-->
+      <button class="btn btn-primary" type="submit" ng-click="DpCntl.submitForm(myForm)">Submit</button>
     <button ng-click="DpCntl.greet()">greet</button>
   </div>
     </form>
