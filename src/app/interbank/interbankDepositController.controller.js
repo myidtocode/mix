@@ -21,14 +21,6 @@
             vm.depositNo = nowDate.toLocaleString();//fake deposit no
             vm.session = Session.init();
 
-            vm.submitForm=function(myForm){
-                if (myForm.$valid){
-                    alert("The data "+vm.currency+" and the rest of the page will be inserted.");
-                    alert('Amazing');
-                    }
-                }
-
-
             vm.queryDict = queryDict();
             function queryDict(){
                 vm.currencys = Dict.get({'dicttypeid':'QLC_CURRENCY_CD'});
@@ -61,6 +53,55 @@
                 }
 
 
+            vm.submitForm=function(myForm){
+                if (myForm.$valid){
+                    alert("dpst_no:"+ vm.depositNo+
+                         "\ncust_name:"+ vm.cust_name+ 
+                        "\npdct_sign_date:"+ vm.signDate+
+                         "\ndpst_amt_million:"+ vm.amt+
+                         "\ncurrency_cd:"+ vm.currency+
+                         "\nterm_month:"+ vm.term+
+                         "\nintst_rate_percent:"+ vm.rate+
+                         "\nintst_type_cd:"+ vm.interestType+
+                         "\npdct_intst_date:"+ vm.intstDate+
+                         "\nmaturity_date:"+ vm.maturityDate+
+                         "\nopinion:"+ vm.opinion+
+                         "\nis_valid:"+"Y"+
+                         "\ncreate_user_id:"+vm.session.userid+
+                         "\ncreate_user_name:"+"张三"+
+                         "\ncreate_time:"+ vm.depositNo+
+                         "\nupdate_user_id:"+"updateuserid"+
+                         "\nupdate_user_name:"+"updateusername"+
+                         "\nupdate_time:"+vm.depositNo+
+                         "\norg_cd:"+"1100"
+                         );
+              /*  TbIntbkDepositInfo.save({
+                    'tb_intbk_deposit_info':{
+                         dpst_no: vm.depositNo,
+                         cust_id: 'custid1',
+                         cust_name: vm.cust_name, 
+                         pdct_sign_date: vm.signDate,
+                         dpst_amt_million: vm.amt,
+                         currency_cd: vm.currency,
+                         term_month: vm.term,
+                         intst_rate_percent: vm.rate,
+                         intst_type_cd: vm.interestType,
+                         pdct_intst_date: vm.intstDate,
+                         maturity_date: vm.maturityDate,
+                         opinion: vm.opinion,
+                         is_valid:'Y',
+                         create_user_id:'A0083312',
+                         create_user_name:'张三',
+                         create_time: vm.depositNo,
+                         update_user_id:'updateuserid',
+                         update_user_name:'userusername',
+                         update_time:vm.depositNo,
+                         org_cd:'1100'}
+                    } );  
+                    alert("Done.");
+                */
+                    }
+                }
 
             vm.createProcess = function createProcess(){
                 alert("The data "+vm.currency+" and the rest of the page will be inserted.");
